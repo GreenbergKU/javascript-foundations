@@ -3,46 +3,69 @@ var Wizard = require('../exercises/wizard');
 
 describe('Wizard', function() {
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     assert.isFunction(Wizard);
   });
 
-  it.skip('should have a name', function() {
+  it('should have a name', function() {
     var wizard = new Wizard({name: 'Jhun'});
     assert.equal(wizard.name, 'Jhun');
   });
 
-  it.skip('should have a beard by default', function() {
+  it('should have a beard by default', function() {
     var wizard = new Wizard({name: 'Jhun'});
     assert.equal(wizard.bearded, true);
   });
 
-  it.skip('should not always be bearded', function() {
+  it('should not always be bearded', function() {
     var wizard = new Wizard({name: 'Jhun', bearded: false});
     assert.equal(wizard.bearded, false)
   });
 
-  it.skip('should have root powers', function() {
+  it('should have root powers', function() {
     var wizard = new Wizard({name: 'Jhun', bearded: false});
     assert.equal(wizard.incantation('chown lumos'), 'CHOWN LUMOS');
   });
 
-  it.skip('should has lots of root powers', function() {
+  it('should has lots of root powers', function() {
     var wizard = new Wizard({name: 'Jhun', bearded: false});
     assert.equal(wizard.incantation('Expecto Patronum'), 'EXPECTO PATRONUM');
   });
 
-  it.skip('should start rested', function() {
+  it('should start rested', function() {
+    var wizard = new Wizard({name: 'Wiz'});
+    assert.equal(wizard.isRested, true);
     // create wizard
     // assert isRested returns true
   });
+  
 
-  it.skip('should be able to cast spells', function() {
+  it('should be able to cast spells', function() {
+    var wizard = new Wizard({name: 'Wiz', bearded: false});
+    assert.equal(wizard.incantation('magic bullet'), 'MAGIC BULLET');
+  });
+  
     // create wizard
     // assert wizard.cast() returns 'MAGIC BULLET'
-  });
+  
 
-  it.skip('should only be able to cast 3 spells', function() {
+  it('should only be able to cast 3 spells', function() {var wizard = new Wizard({name: 'Wiz', bearded: false});
+ 
+  // if (wizard.spells < 3) {
+  //   assert.equal(wizard.isRested, true);
+  // } else {
+  //   assert.equal(wizard.isRested, false);  
+  //   assert.equal(wizard.cast(), 'I SHALL NOT CAST!')
+  // }
+  ////     or...
+  assert.equal(wizard.isRested, true);
+  wizard.cast();
+  assert.equal(wizard.isRested, true);
+  wizard.cast();
+  assert.equal(wizard.isRested, true);
+  wizard.cast();
+  assert({isRested: false});  
+  assert.equal(wizard.cast(), 'I SHALL NOT CAST!'); 
     // create wizard
     // assert isRested is true
     // cast()
@@ -54,3 +77,4 @@ describe('Wizard', function() {
     // assert cast() returns 'I SHALL NOT CAST!'
   });
 });
+  
